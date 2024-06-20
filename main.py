@@ -3,16 +3,13 @@ from tkinter import messagebox
 import calculator
 import guess_number
 import utils
-
+import quiz
 
 def main():
     root = tk.Tk()
     root.title("Main Menu")
-
-    def show_guess_number():
-        guess_number_window = tk.Toplevel(root)
-        guess_number_window.title("Guess the Number")
-        guess_number.guess_number()  # You may need to adjust guess_number to work with tkinter.
+    root.geometry("300x200")  # Set the size of the window
+    root.eval('tk::PlaceWindow . center')  # Center the window on the screen
 
     def exit_program():
         root.destroy()
@@ -21,7 +18,7 @@ def main():
 
     # Main menu buttons
     tk.Button(root, text="Use Calculator", command=calculator.show_calculator).pack(pady=10)
-    tk.Button(root, text="Play Guess the Number", command=show_guess_number).pack(pady=10)
+    tk.Button(root, text="Play Guess the Number", command=guess_number.guess_number).pack(pady=10)
     tk.Button(root, text="Exit", command=exit_program).pack(pady=10)
 
     root.mainloop()
