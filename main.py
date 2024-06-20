@@ -1,29 +1,31 @@
+import tkinter as tk
+from tkinter import messagebox
 import calculator
 import guess_number
 import utils
 
 
 def main():
+    root = tk.Tk()
+    root.title("Main Menu")
+
+    def show_guess_number():
+        guess_number_window = tk.Toplevel(root)
+        guess_number_window.title("Guess the Number")
+        guess_number.guess_number()  # You may need to adjust guess_number to work with tkinter.
+
+    def exit_program():
+        root.destroy()
+
     utils.print_welcome_message()
 
-    while True:
-        print("\nChoose an option:")
-        print("1. Use Calculator")
-        print("2. Play Guess the Number")
-        print("3. Exit")
+    # Main menu buttons
+    tk.Button(root, text="Use Calculator", command=calculator.show_calculator).pack(pady=10)
+    tk.Button(root, text="Play Guess the Number", command=show_guess_number).pack(pady=10)
+    tk.Button(root, text="Exit", command=exit_program).pack(pady=10)
 
-        choice = input("Enter choice (1/2/3): ")
-
-        if choice == '1':
-            calculator.calculator()
-        elif choice == '2':
-            guess_number.guess_number()
-        elif choice == '3':
-            print("Exiting the program.")
-            break
-        else:
-            print("Invalid choice, please try again.")
+    root.mainloop()
 
 
 if __name__ == "__main__":
-        main()
+    main()
