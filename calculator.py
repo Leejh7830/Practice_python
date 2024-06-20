@@ -1,4 +1,6 @@
 import math
+import tkinter as tk
+from tkinter import messagebox
 
 
 def square_root(x):
@@ -65,7 +67,7 @@ def calculator():
             print("Invalid Input")
 
         next_calculation = input("Do you want to perform another calculation? (yes/no): ")
-        if next_calculation.lower() != 'yes':
+        if next_calculation.lower() not in ['yes', 'y']:
             break
 
 
