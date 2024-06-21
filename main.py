@@ -3,7 +3,6 @@ from tkinter import messagebox
 import calculator
 import guess_number
 import utils
-import quiz
 
 def main():
     root = tk.Tk()
