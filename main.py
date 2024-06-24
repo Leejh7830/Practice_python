@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import calculator
 import guess_number
+import quiz
 import utils
 
 def main():
@@ -18,6 +19,7 @@ def main():
     # Main menu buttons
     tk.Button(root, text="Use Calculator", command=calculator.show_calculator).pack(pady=10)
     tk.Button(root, text="Play Guess the Number", command=guess_number.guess_number).pack(pady=10)
+    tk.Button(root, text="Play Quiz", command=quiz.show_quiz).pack(pady=10)
     tk.Button(root, text="Exit", command=exit_program).pack(pady=10)
 
     root.mainloop()
