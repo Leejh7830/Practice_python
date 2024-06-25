@@ -25,7 +25,7 @@ questions = [
 def show_quiz():
     quiz_window = tk.Toplevel() # 새로운 창 생성
     quiz_window.title("Quiz Game") # 창 제목 설정
-    quiz_window.geometry("300x200") # 창 크기 설정
+    quiz_window.geometry("400x200") # 창 크기 설정
 
     current_question = tk.StringVar() # 현재 질문을 저장하는 StringVar 객체
     current_answers = []  # 현재 정답들을 저장하는 리스트
@@ -53,7 +53,7 @@ def show_quiz():
         else: 
             messagebox.showerror("Incorrect",
                                  f"Your answer is incorrect. Correct answers: {', '.join(current_answers)}")  # 오답 메시지 표시
-        next_question()  # 다음 질문으로 이동
+        quiz_window.after(1000, next_question)  # 1초 후에 다음 질문으로 이동
 
     tk.Label(quiz_window, textvariable=current_question).pack(pady=10)  # 질문을 표시하는 레이블 생성 및 배치
     answer_entry = tk.Entry(quiz_window)  # 답변을 입력할 수 있는 입력 필드 생성
