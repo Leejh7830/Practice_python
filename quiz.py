@@ -23,6 +23,7 @@ questions = [
 
 # 퀴즈 게임 시작
 def show_quiz():
+    root.withdraw()  # 메인 Tk 윈도우 숨기기
     quiz_window = tk.Toplevel()  # 새로운 창 생성
     quiz_window.title("Quiz Game")  # 창 제목 설정
     quiz_window.geometry("400x200")  # 창 크기 설정
@@ -45,6 +46,11 @@ def show_quiz():
             messagebox.showinfo("Quiz Completed", "You have completed the quiz!")  # 퀴즈 완료 메시지 표시
             quiz_window.destroy()  # 창 닫기
 
+    def show_hint():
+        if current_answers:
+            hint = f"The answer has {len(current_answers[0])} letters."
+            messagebox.showinfo("Hint", hint)
+
     # 사용자의 답변을 확인하는 함수
     def check_answer(event=None):  # 이벤트 매개변수를 추가하여 엔터 키 이벤트를 처리
         user_answer = answer_entry.get().lower().strip()
@@ -52,18 +58,19 @@ def show_quiz():
             messagebox.showinfo("Correct", "Your answer is correct!")  # 정답 메시지 표시
         else:
             messagebox.showerror("Incorrect", f"Your answer is incorrect. Correct answers: {', '.join(current_answers)}")  # 오답 메시지 표시
-        quiz_window.after(1000, next_question)  # 1초 후에 다음 질문으로 이동
+        quiz_window.after(500, next_question)  # 1초 후에 다음 질문으로 이동
 
     tk.Label(quiz_window, textvariable=current_question, font=("Helvetica", 14)).pack(pady=10)  # 질문을 표시하는 레이블 생성 및 배치
     answer_entry = tk.Entry(quiz_window, font=("Helvetica", 14))  # 답변을 입력할 수 있는 입력 필드 생성
     answer_entry.pack(pady=10)  # 입력 필드 배치
     answer_entry.bind("<Return>", check_answer)  # 엔터 키 이벤트를 check_answer 함수에 바인딩
     tk.Button(quiz_window, text="Submit Answer", command=check_answer, font=("Helvetica", 14)).pack(pady=10)  # 답변 제출 버튼 생성 및 배치
+    tk.Button(quiz_window, text="Show Hint", command=show_hint, font=("Helvetica", 14)).pack(pady=10)
 
     next_question()  # 첫 질문을 표시
 
-# For testing the quiz independently
-if __name__ == "__main__":
-    root = tk.Tk()
-    show_quiz()
-    root.mainloop()
+# # For testing the quiz independently
+# if __name__ == "__main__":
+#     root = tk.Tk()
+#     show_quiz()
+#     root.mainloop()
