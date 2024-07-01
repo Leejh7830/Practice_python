@@ -94,7 +94,6 @@ def show_calculator():
     frame = tk.Frame(calculator_window)
     frame.grid(row=0, column=0, padx=10, pady=10)
 
-    # Number inputs
     tk.Label(frame, text="Number 1").grid(row=0, column=0, pady=5)
     entry1 = tk.Entry(frame)
     entry1.grid(row=0, column=1, pady=5)
