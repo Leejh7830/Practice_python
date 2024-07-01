@@ -44,6 +44,7 @@ def log(x, base=10):
 def show_calculator():
     calculator_window = tk.Toplevel()
     calculator_window.title("Calculator")
+    calculator_window.geometry("400x300")  # 창 크기 설정
 
     def calculate():
         try:
@@ -116,9 +117,8 @@ def show_calculator():
     result_label = tk.Label(frame, text="Result: ")
     result_label.grid(row=4, column=0, columnspan=2)
 
-
-# Remove this part to prevent the calculator window from opening when imported in main.py
- # if __name__ == "__main__":
- #    root = tk.Tk()
- #    show_calculator()
- #    root.mainloop()
+# For testing the calculator independently
+if __name__ == "__main__":
+    root = tk.Tk()
+    show_calculator()
+    root.mainloop()
