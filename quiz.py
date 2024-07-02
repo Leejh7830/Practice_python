@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-# 질문과 정답 리스트
+# 질문과 정답 리스트.
 questions = [
     ("프랑스의 수도는?", ["파리"]),
     ("대한민국의 수도는?", ["서울"]),
