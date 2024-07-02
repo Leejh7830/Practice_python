@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-# 질문과 정답 리스트.
+# 질문과 정답 리스트
 questions = [
     ("프랑스의 수도는?", ["파리"]),
     ("대한민국의 수도는?", ["서울"]),
@@ -23,7 +23,7 @@ questions = [
 
 # 퀴즈 게임 시작
 def show_quiz():
-    root.withdraw()  # 메인 Tk 윈도우 숨기기
+    # root.withdraw()  # 메인 Tk 윈도우 숨기기
     quiz_window = tk.Toplevel()  # 새로운 창 생성
     quiz_window.title("Quiz Game")  # 창 제목 설정
     quiz_window.geometry("400x200")  # 창 크기 설정
