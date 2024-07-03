@@ -53,7 +53,7 @@ def main():
         show_error_message(f"Failed to load Quiz: {e}")
 
     try:
-        tk.Button(root, text="Play Adventure Game", command=adventure_game.adventure_game(), **button_config).pack(pady=10)
+        tk.Button(root, text="Play Adventure Game", command=adventure_game.adventure_game, **button_config).pack(pady=10)
     except Exception as e:
         show_error_message(f"Failed to load Adventure Game: {e}")
 
