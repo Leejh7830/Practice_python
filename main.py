@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
+
+import adventure_game
 import calculator
 import guess_number
 import quiz
@@ -8,7 +10,7 @@ import utils
 def main():
     root = tk.Tk()
     root.title("Main Menu")
-    root.geometry("300x300")  # Set the size of the window
+    root.geometry("300x400")  # Set the size of the window
     root.eval('tk::PlaceWindow . center')  # Center the window on the screen
 
     def exit_program():
@@ -49,6 +51,11 @@ def main():
         tk.Button(root, text="Play Quiz", command=quiz.show_quiz, **button_config).pack(pady=10)
     except Exception as e:
         show_error_message(f"Failed to load Quiz: {e}")
+
+    try:
+        tk.Button(root, text="Play Adventure Game", command=adventure_game.adventure_game(), **button_config).pack(pady=10)
+    except Exception as e:
+        show_error_message(f"Failed to load Adventure Game: {e}")
 
     tk.Button(root, text="Exit", command=exit_program, **button_config).pack(pady=10)
 
