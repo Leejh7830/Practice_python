@@ -34,7 +34,7 @@ def main():
         "width": 20,
     }
 
-    # Main menu buttons
+    # Main menu button
     try:
         tk.Button(root, text="Use Calculator", command=calculator.show_calculator, **button_config).pack(pady=10)
     except Exception as e:
